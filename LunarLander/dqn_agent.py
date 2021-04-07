@@ -86,6 +86,15 @@ class Agent():
         """
         states, actions, rewards, next_states, dones = experiences
 
+        print('states', states.shape)
+        print('actions', actions.shape)
+        print('rewards', rewards.shape)
+        print('next_states', next_states.shape)
+        next_actions = torch.argmax(self.qnetwork_target(next_states), dim=1).unsqueeze(1)
+        print('next_actions', next_actions.shape)
+        print('dones', dones.shape)
+        exit()
+
         ## TODO: compute and minimize the loss
         "*** YOUR CODE HERE ***"
 
